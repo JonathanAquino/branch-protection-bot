@@ -1,5 +1,8 @@
 # Branch Protection Bot
-A bot tool to temporarily disable and re-enable "Include administrators" option in branch protection
+A bot tool to temporarily disable and re-enable "Include administrators" option in branch protection.
+
+This is a fork of benjefferies/branch-protection-bot to guard against malicious code
+ever being introduced by the original author.
 
 Github doesn't have a way to give a Bot access to override the branch protection, specifically if you [include administrators](https://github.com/isaacs/github/issues/1390).
 The only possible solution is to disable the `include administrators` option. This increases risk of accidental pushes to master from administrators (I've done it a few times).
