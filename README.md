@@ -16,26 +16,26 @@ The intended use of this tool is to is in a CI/CD pipeline where you require tem
 ## Example usage
 ### Docker
 ```
-docker run -e ACCESS_TOKEN=abc123 -e BRANCH=master -e REPO=branch-protection-bot -e OWNER=benjefferies benjjefferies/branch-protection-bot
+docker run -e ACCESS_TOKEN=abc123 -e BRANCH=master -e REPO=branch-protection-bot -e OWNER=benjefferies JonathanAquino/branch-protection-bot
 ```
 
 ### Github Actions
 
 ```
 - name: Temporarily disable "include administrators" branch protection
-  uses: benjefferies/branch-protection-bot@master
+  uses: JonathanAquino/branch-protection-bot@master
   if: always()
   with:
     access-token: ${{ secrets.ACCESS_TOKEN }}
     branch: ${{ github.event.repository.default_branch }}
-    
+
 - name: Deploy
   run: |
     mvn release:prepare -B
     mvn release:perform -B
-   
+
 - name: Enable "include administrators" branch protection
-  uses: benjefferies/branch-protection-bot@master
+  uses: JonathanAquino/branch-protection-bot@master
   if: always()  # Force to always run this step to ensure "include administrators" is always turned back on
   with:
     access-token: ${{ secrets.ACCESS_TOKEN }}
